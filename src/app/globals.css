@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.services-page {
+  background:
+    radial-gradient(circle at 17% 4%, rgba(0, 229, 255, .12), transparent 28rem),
+    radial-gradient(circle at 91% 94%, rgba(139, 92, 246, .16), transparent 24rem),
+    linear-gradient(180deg, #07090a 0%, #030404 46%, #08050d 100%);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.projects-page {
+  background:
+    radial-gradient(circle at 2% 8%, rgba(0, 217, 255, .18), transparent 26rem),
+    radial-gradient(circle at 94% 96%, rgba(124, 58, 237, .14), transparent 28rem),
+    linear-gradient(180deg, #071018 0%, #07090d 45%, #090710 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.teem-page {
+  background:
+    radial-gradient(circle at 7% 0%, rgba(0, 229, 255, .16), transparent 24rem),
+    radial-gradient(circle at 96% 100%, rgba(124, 58, 237, .14), transparent 25rem),
+    linear-gradient(180deg, #071012 0%, #050606 48%, #08060e 100%);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.glow-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+.glow-card:hover .card-arrow {
+  transform: translateX(4px);
+}
+
+.glow-card--service::before {
+  background: linear-gradient(135deg, rgba(0, 229, 255, .45), rgba(139, 92, 246, .42), transparent 58%);
+}
+
+.glow-card--project::before,
+.glow-card--portrait::before {
+  background: linear-gradient(135deg, rgba(34, 211, 238, .35), rgba(99, 102, 241, .24), transparent 58%);
+}
+
+.glow-card--project::before {
+  background: linear-gradient(135deg, rgba(34, 211, 238, .38), rgba(99, 102, 241, .24), transparent 62%);
 }
