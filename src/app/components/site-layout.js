@@ -50,13 +50,14 @@ export default function SiteLayout({ children }) {
           <Link className="font-black tracking-[0.24em] text-cyan-300" href="/">
             ZYNEXIS
           </Link>
-          <nav className="hidden items-center gap-6 text-zinc-300 md:flex">
+          <nav className=" items-center gap-6 text-zinc-300 flex">
             {navItems.map((item) => (
               <NavLink item={item} key={item.label} pathname={pathname} />
             ))}
+            
           </nav>
           <motion.a
-            className="rounded-full bg-cyan-300 px-4 py-2 font-bold text-slate-950 shadow-[0_0_28px_rgba(34,211,238,.2)]"
+            className="rounded-full bg-cyan-300 px-4 py-2 font-bold text-slate-950 shadow-[0_0_28px_rgba(34,211,238,.2)] hidden md:flex"
             href="#contact"
             whileHover={buttonHover}
             whileTap={buttonTap}
